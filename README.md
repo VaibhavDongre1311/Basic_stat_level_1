@@ -1,30 +1,43 @@
 # Assignment Basic Stats
 
 ## Q1) Identify the Data type for the Following:
+Activity	 ----   Data Type
+Number of beatings from Wife	 ----   ordinal
+Results of rolling a dice ----   	discrete
+Weight of a person	 ----   Continuous
+Weight of Gold	 ----   continuous
+Distance between two places ----   	continuous
+Length of a leaf	 ----   continuous
+Dog's weight	 ----   continuous
+Blue Color	 ----   nominal
+Number of kids	 ----   discrete
+Number of tickets in Indian railways ----   	discrete
+Number of times married	 ----   discrete
+Gender (Male or Female)	 ----   nominal
 
 ## Q2) Identify the Data types, which were among the following
 ### Nominal, Ordinal, Interval, Ratio.
-Data	                        Data Type
-Gender	                      Nominal
-High School Class Ranking	    Ordinal
-Celsius Temperature	          Interval
-Weight	                      Ratio
-Hair Color	                  Nominal
-Socioeconomic Status	        Ordinal
-Fahrenheit Temperature	      Interval
-Height	                      Ratio
-Type of living accommodation	Ordinal
-Level of Agreement	          Ordinal
-IQ (Intelligence Scale)	      Ratio
-Sales Figures	                Ratio
-Blood Group	                  Nominal
-Time Of Day	                  Ordinal
-Time on a Clock with Hands	  Interval
-Number of Children	          Nominal
-Religious Preference	        Nominal
-Barometer Pressure	          Interval
-SAT Scores	                  Interval
-Years of Education	          Ordinal
+* Data	                        ----     Data Type
++ Gender	                     ----     Nominal
++ High School Class Ranking	      ----     Ordinal
++ Celsius Temperature	            ----     Interval
++ Weight	                        ----     Ratio
++ Hair Color	                    ----     Nominal
++ Socioeconomic Status	          ----     Ordinal
++ Fahrenheit Temperature	          ----   Interval
++ Height	                         ----    Ratio
++ Type of living accommodation	  ----     Ordinal
++ Level of Agreement	            ----     Ordinal
++ IQ (Intelligence Scale)	        ----     Ratio
++ Sales Figures	                  ----     Ratio
++ Blood Group	                    ----     Nominal
++ Time Of Day	                     ----    Ordinal
++ Time on a Clock with Hands	     ----    Interval
++ Number of Children	            ----     Nominal
++ Religious Preference	         ----      Nominal
++ Barometer Pressure	           ----      Interval
++ SAT Scores	                    ----     Interval
++ Years of Education	              ----   Ordinal
 
 
 ## Q3) Three Coins are tossed, find the probability that two heads and one tail are obtained?
@@ -55,20 +68,30 @@ If none of them drawn 2 balls are blue = 7 – 2 = 5
 N (Event (None of the balls drawn is blue) = 5! / 2! * 3! = (5*4) / (2*1) 
                                            = 10
 P (None of the balls drawn is blue) = N (Event (None of the balls drawn is blue) / N (Event (2 balls are drawn randomly from bag)
-                                    = 10 / 21
+                                    = 10 / 21=0.47
 
 ## Q6) Calculate the Expected number of candies for a randomly selected child 
 Below are the probabilities of count of candies for children (ignoring the nature of the child-Generalized view)
-CHILD	Candies count	Probability
-A	1	0.015
-B	4	0.20
-C	3	0.65
-D	5	0.005
-E	6	0.01
-F	2	0.120
+CHILD ----   Candiescount ----   	Probability
+A	 ----   1 ----   	0.015
+B ----   	4 ----   	0.20
+C ----   	3 ----   	0.65
+D ----   	5 ----   	0.005
+E ----   	6 ----   	0.01
+F ----   	2	 ----   0.120
 Child A – probability of having 1 candy = 0.015.
 Child B – probability of having 4 candies = 0.20
 Ans: 
+
+CHILD	 ----   	Candies count	 ----   	Probability	 ----   	Expected values
+A	 ----   	1 ----   		0.015 ----   		0.015
+B	 ----   	4 ----   		0.20 ----   		0.8
+C ----   		3 ----   		0.65 ----   		1.95
+D ----   		5 ----   		0.005 ----   		0.025
+E ----   		6 ----   		0.01 ----   		0.06
+F ----   		2 ----   		0.120 ----   		0.24
+Total expected candies ----   	 ----   	 ----   				3.085
+
 0.015+0.8+1.95+0.025+0.06+0.24 = 3.09
 
 ## Q7) Calculate Mean, Median, Mode, Variance, Standard Deviation, Range & comment about the values / draw inferences, for the given dataset
@@ -96,37 +119,62 @@ Ans: Expected value = Sum (X * Probability of X)
       Cars speed and distance 
 Use Q9_a.csv
 Ans: 
-q9a = pd.read_csv("C:/Users/Moin Dalvi/Documents/EXcelR Study and Assignment Material/Data Science Assignments/Basic Statistics 1/Q9_a.csv", index_col = 'Index')
 
-print('For Cars Speed', "Skewness value=", np.round(q9a.speed.skew(),2), 'and' , 'Kurtosis value=', np.round(q9a.dist.skew(),2))
-For Cars Speed Skewness value= -0.12 and Kurtosis value= 0.81
+from scipy.stats import skew
+from scipy.stats import kurtosis
+import pandas as pd
+import numpy as np
+Q_9=pd.read_csv("/content/sample_data/Q9_a.csv")
+print(skew(Q_9,axis=0, bias=True))
+print(kurtosis(Q_9,axis=0, bias=True))
+For Cars Speed Skewness value= -0.11395477 and Kurtosis value= 0.57714742
 
-print('Skewness value =', np.round(q9a.dist.skew(),2),'and', 'Kurtosis value =', np.round(q9a.dist.kurt(),2), 'for Cars Distance')
-Skewness value = 0.81 and Kurtosis value = 0.41 for Cars Distance
+Skewness value =0.78248352 and Kurtosis value = 0.24801866 for Cars Distance
 
 SP and Weight (WT)
 Use Q9_b.csv
 Ans:
-q9b =pd.read_csv("C:/Users/Moin Dalvi/Documents/EXcelR Study and Assignment Material/Data Science Assignments/Basic Statistics 1/Q9_b.csv")
-
-print('For SP Skewness =', np.round(q9b.SP.skew(),2), 'kurtosis =', np.round(q9b.WT.kurt(),2))
-For SP Skewness = 1.61 kurtosis = 0.95
-
-print('For WT Skewness =', np.round(q9b.SP.skew(),2), 'Kurtosis =', np.round(q9b.WT.kurt(),2))
-For WT Skewness = 1.61 Kurtosis = 0.95
+from scipy.stats import skew
+from scipy.stats import kurtosis
+import pandas as pd
+import numpy as np
+Q9_B=pd.read_csv("/content/sample_data/Q9_b (1).csv")
+print(skew(Q9_B,axis=0, bias=True))
+print(kurtosis(Q9_B,axis=0, bias=True))
+For SP Skewness =1.58145 kurtosis = 2.7235
+For WT Skewness = -0.6033 Kurtosis =0.819465
 
 ## Q10) Draw inferences about the following boxplot & histogram
 
  
 Ans:  The histograms peak has right skew and tail is on right. Mean > Median. We have outliers on the higher side. 
  
-Ans: The boxplot has outliers on the maximum side.
+Ans:On the basis of boxplot and histogram we concluded that Its right skewed data set so that most number of data points on lower side and median will be on the left of the mean of the data set  and the histogram has log tail so that there some of the data point in higher side has outliers and this outliers we can see in the box plot as well.
+
+The boxplot has outliers on the maximum side.
 
 ## Q11) Suppose we want to estimate the average weight of an adult male in    Mexico. We draw a random sample of 2,000 men from a population of 3,000,000 men and weigh them. We find that the average person in our sample weighs 200 pounds, and the standard deviation of the sample is 30 pounds. Calculate 94%,98%,96% confidence interval?
 Ans:
-conf_94 =stats.t.interval(alpha = 0.94, df=1999, loc=200, scale=30/np.sqrt(2000))
-print(np.round(conf_94,0))
-print(conf_94)
+from scipy import stats
+import numpy as np
+
+sample_mean = 200
+sample_std = 30
+sample_size = 2000
+
+df = sample_size - 1
+
+t_94 = stats.t.ppf(0.97, df)
+t_98 = stats.t.ppf(0.99, df)
+t_96 = stats.t.ppf(0.98, df)
+
+ci_94 = (sample_mean - t_94 * sample_std / np.sqrt(sample_size), sample_mean + t_94 * sample_std / np.sqrt(sample_size))
+ci_98 = (sample_mean - t_98 * sample_std / np.sqrt(sample_size), sample_mean + t_98 * sample_std / np.sqrt(sample_size))
+ci_96 = (sample_mean - t_96 * sample_std / np.sqrt(sample_size), sample_mean + t_96 * sample_std / np.sqrt(sample_size))
+
+print("94% Confidence Interval:", ci_94)
+print("98% Confidence Interval:", ci_98)
+print("96% Confidence Interval:", ci_96)
 For 94% confidence interval Range is [ 198.73 – 201.26] 
 For 98% confidence interval range is [198.43 – 201.56] 
 For 96% confidence interval range is [198.62 – 201.37]
@@ -138,7 +186,10 @@ For 96% confidence interval range is [198.62 – 201.37]
 Ans: Mean =41, Median =40.5, Variance =25.52 and Standard Deviation =5.05
 
 2)	What can we say about the student marks? 
-Ans: we don’t have outliers and the data is slightly skewed towards right because mean is greater than median. 
+Ans:1] there is some deviation in the marks so that sum of the students scores high marks and some of the student score low marks in respective of the other student
+
+2] mean and median approx. similar so that the data is equally distributed both side of the mean points so that scores of the students in the exam equally distributed almost % student got low marks and 50% students got high marks.
+
 
 ## Q13) What is the nature of skewness when mean and median of data are equal?
 Ans: No skewness is present we have a perfect symmetrical distribution
@@ -179,32 +230,28 @@ Ans: First there are no outliers. Second both the box plot shares the same media
 Data _set: Cars.csv
 Calculate the probability of MPG of Cars for the below cases.
        MPG <- Cars $ MPG
-a.	P(MPG>38)
-Ans: Prob_MPG_greater_than_38 = np.round(1 - stats.norm.cdf(38, loc= q20.MPG.mean(), scale= q20.MPG.std()),3)
-print('P(MPG>38)=',Prob_MPG_greater_than_38)
-
-P(MPG>38)= 0.348
-
-b.	P(MPG<40)
-Ans: prob_MPG_less_than_40 = np.round(stats.norm.cdf(40, loc = q20.MPG.mean(), scale = q20.MPG.std()),3)
-print('P(MPG<40)=',prob_MPG_less_than_40)
-
-P(MPG<40)= 0.729
-
-c.	P (20<MPG<50)
-Ans: prob_MPG_greater_than_20 = np.round(1-stats.norm.cdf(20, loc = q20.MPG.mean(), scale = q20.MPG.std()),3)
-print('p(MPG>20)=',(prob_MPG_greater_than_20))
-p(MPG>20)= 0.943
-
-prob_MPG_less_than_50 = np.round(stats.norm.cdf(50, loc = q20.MPG.mean(), scale = q20.MPG.std()),3)
-print('P(MPG<50)=',(prob_MPG_less_than_50))
-P(MPG<50)= 0.956
-
-prob_MPG_greaterthan20_and_lessthan50= (prob_MPG_less_than_50) - (prob_MPG_greater_than_20)
-print('P(20<MPG<50)=',(prob_MPG_greaterthan20_and_lessthan50))
-P(20<MPG<50)= 0.013000000000000012
-
-
+cars=pd.read_csv("/content/sample_data/Cars.csv")
+from scipy import stats
+mpg=cars["MPG"]
+mpg
+from numpy.ma.core import std
+# a.	P(MPG>38)
+ (30-mpg.mean())/mpg.std()
+ probality =1-stats.norm.cdf(-0.48426901305407655,mpg.mean(),mpg.std())
+ probality*100
+ a.	P(MPG>38)=99.99%(0.99)
+# b.	P(MPG<40)
+ (40-mpg.mean())/mpg.std()
+ probality =stats.norm.cdf(0.6108479474833596,mpg.mean(),mpg.std())
+ probality*100
+b.	P(MPG<40)=0.010%(0.0010)
+# c P (20<MPG<50)
+  print((20-mpg.mean())/mpg.std())
+  (50-mpg.mean())/mpg.std()
+  probality = stats.norm.cdf(1.7059649080207957,mpg.mean(),mpg.std())- 
+  stats.norm.cdf(-1.5793859735915128,mpg.mean(),mpg.std())
+  probality*100
+  c.    P (20<MPG<50)=0.0129(0.00012)
 
 ## Q21) Check whether the data follows normal distribution
 a)	Check whether the MPG of Cars follows Normal Distribution 
@@ -224,30 +271,30 @@ Ans:  Adipose Tissue (AT) and Waist does not follow Normal Distribution
 Ans: 
 # z value for 90% confidence interval
 print('Z score for 60% Conifidence Intervla =',np.round(stats.norm.ppf(.05),4))
-Z score for 60% Conifidence Intervla = -1.6449
+Z score for 60% Conifidence Intervla = 1.6449
 
 # z value for 94% confidence interval
 print('Z score for 60% Conifidence Intervla =',np.round(stats.norm.ppf(.03),4))
-Z score for 60% Conifidence Intervla = -1.8808
+Z score for 60% Conifidence Intervla = 1.8808
 
 # z value for 60% confidence interval
 print('Z score for 60% Conifidence Intervla =',np.round(stats.norm.ppf(.2),4))
-Z score for 60% Conifidence Intervla = -0.8416
+Z score for 60% Conifidence Intervla = 0.253
 
 ## Q 23) Calculate the t scores of 95% confidence interval, 96% confidence interval, 99% confidence interval for sample size of 25
 Ans: 
 # t score for 95% confidence interval
 print('T score for 95% Confidence Interval =',np.round(stats.t.ppf(0.025,df=24),4))
-T score for 95% Confidence Interval = -2.0639
+T score for 95% Confidence Interval = 2.0639
 
 
-# t value for 94% confidence interval
+# t value for 96% confidence interval
 print('T score for 94% Confidence Inteval =',np.round(stats.t.ppf(0.03,df=24),4))
-T score for 94% Confidence Inteval = -1.974
+T score for 94% Confidence Inteval =     2.171
 
 # t value for 99% Confidence Interval
 print('T score for 95% Confidence Interval =',np.round(stats.t.ppf(0.005,df=24),4))
-T score for 95% Confidence Interval = -2.7969
+T score for 95% Confidence Interval = 2.7969
 
 ##  Q24)   A Government company claims that an average light bulb lasts 270 days. A researcher randomly selects 18 bulbs for testing. The sampled bulbs last an average of 260 days, with a standard deviation of 90 days. If the CEO's claim were true, what is the probability that 18 randomly selected bulbs would have an average life of no more than 260 days
 Hint:  
